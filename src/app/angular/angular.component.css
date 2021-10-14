@@ -1,0 +1,228 @@
+.bannerAngular, .tecnologias{
+  color:#ffffff;
+}
+
+.bannerAngular{
+    background-image: linear-gradient(to left,#dd0031 78.2%,#c3002f 21.8%);
+    margin-bottom: 3vw;
+    box-shadow: black 0px 0px 10px 0px;
+}
+
+.angular{
+  margin-top: 10%;
+
+}
+
+section{
+  color: rgb(114, 114, 114);
+}
+
+.historia{
+  margin-top: 3vw;
+}
+.historia h1{
+  color: #3990fb;
+}
+
+.sec1 img{
+  margin-top: 5%;
+}
+
+.textAngular{
+  margin-top: 6%;
+
+}
+
+
+.tecnologias{
+  background-color: #3990fb;
+   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.working-area .single-working-item .icon-box {
+  background: #f7f7f7 none repeat scroll 0 0;
+  border: 1px solid #f7f7f7;
+  border-radius: 50%;
+  display: block;
+  height: 180px;
+  padding: 9px;
+  position: relative;
+  width: 180px;
+  margin: 0 auto;
+  transition: all 500ms ease;
+}
+
+.working-area .single-working-item .icon-box .icon {
+  background: #3990fb none repeat scroll 0 0;
+  border-radius: 50%;
+  display: block;
+  height: 160px;
+  width: 160px;
+  text-align: center;
+  line-height: 160px;
+  font-size: 50px;
+  transition: all 500ms ease;
+  margin-bottom: 7vw;
+}
+
+.small-caps {
+  font-variant: small-caps;
+}
+
+.working-area .single-working-item .icon-box .icon:hover {
+  background: rgb(255, 255, 255) none repeat scroll 0 0;
+}
+
+.working-area .single-working-item .icon-box .count {
+  background: #ffffff none repeat scroll 0 0;
+  border: 1px solid #f7f7f7;
+  border-radius: 50%;
+  display: block;
+  height: 45px;
+  left: 5px;
+  position: absolute;
+  text-align: center;
+  top: 10px;
+  width: 45px;
+  transition: all 500ms ease;
+}
+
+.working-area .single-working-item .icon-box .count h3 {
+  font-size: 18px;
+  line-height: 45px;
+  font-weight: 700;
+  transition: all 500ms ease;
+}
+
+.working-area .single-working-item .text-box h3 {
+  font-size: 25px;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin: 21px 0 9px;
+}
+
+.working-area .single-working-item:hover .icon-box {
+  background: #dd0031;
+}
+
+.working-area .single-working-item:hover .icon-box .count {
+  background: #dd0031;
+}
+
+.working-area .single-working-item:hover .icon-box .count h3 {
+  color: #fff;
+}
+
+.flaticon-people img {
+  width: 70%;
+}
+
+.porq{
+  padding: 7vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.porq h1, .porq h2{
+  color: #3990fb;
+  margin-bottom: 2vw;
+}
+
+.porq img, .porq div{
+  padding: 0px;
+}
+
+.sec2{
+  margin-top: 2vw;
+}
+
+.npmInit{
+  height: 60px;
+
+}
+
+.banner{
+  margin-top: 150px;
+  color: #F2F2F2;
+  display: flex;
+  align-items: center;
+}
+
+.banner-img{
+  width: 98vw;
+  opacity: 0.9;
+}
+
+
+h2{
+  color: #9c8f8f;
+}
+
+.banner2{
+  margin-bottom: 7vw;
+  padding: 0px;
+}
+
+
+
+@media screen and (min-width: 0px) {
+  h2{
+    font-size: 20px;
+    line-height: 34px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 19px;
+}
+  .overlay2{
+      position: absolute;
+      top: 1vh;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  h2{
+    font-size: 32px;
+    line-height: 48px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 22px;
+}
+  .overlay2{
+      position: absolute;
+      top: 19vh;
+  }
+}
+
+
+.btn {
+  border: 2px solid black;
+  background-color: inherit;
+  color: black;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  text-decoration: none;
+  box-shadow: rgba(189, 183, 183, 0.795) 5px 5px 5px 0px;
+
+}
+.danger {
+  border-color: #dd0031;
+  color: #dd0031;
+}
+.danger:hover {
+  background: #dd0031;
+  color: white;
+  box-shadow: black 0px 0px 0px 0px;
+  transition: 0.2s;
+}
+
+
+

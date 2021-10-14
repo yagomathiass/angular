@@ -1,0 +1,90 @@
+.bannerComponents{
+    background-color: hsl(213, 96%, 60%);
+    color: #ffffff;
+    margin-bottom: 4vw;
+    box-shadow: black 0px 0px 10px 0px;
+}
+
+.bannerComponents h1{
+    margin-bottom: 4vw;
+}
+
+.imgBanner{
+    margin-top: 2vw;
+    display: flex;
+    justify-content: center;
+    -webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.7));
+    filter: drop-shadow(12px 12px 12px rgba(0, 0, 0, 0.7));
+}
+
+.h1{
+    margin-top: 3vw;
+    color: hsl(213, 96%, 60%);
+}
+p{
+    line-height: 10vw;
+}
+li{
+    margin-top: 3vw;
+    font-size: x-large;
+}
+strong{
+    color: #dd0031;
+}
+.example{
+    background-color: #1e1e1e; 
+    color: #9cdcfe;
+}
+.roxo{
+    color: #c586c0; 
+}
+.branco{
+    color: #d4d4d4;
+}
+.azul{
+    color: #9cdcfe;
+}
+.azulEscuro{
+    color: #569cd6;
+}
+.verde{
+    color: #4ec9b0;
+}
+.laranja{
+    color: #ce9178;
+}
+.amarelo{
+    color: #dcdcaa;
+}
+
+@media screen and (min-width: 0px) {
+    h2{
+      font-size: 20px;
+      line-height: 34px;
+  }
+  
+  p, li {
+      font-size: 16px;
+      line-height: 19px;
+  }
+    .overlay2{
+        position: absolute;
+        top: 1vh;
+    }
+  }
+  
+  @media screen and (min-width: 768px) {
+    h2{
+      font-size: 32px;
+      line-height: 48px;
+  }
+  
+  p, li {
+      font-size: 16px;
+      line-height: 22px;
+  }
+    .overlay2{
+        position: absolute;
+        top: 19vh;
+    }
+  }

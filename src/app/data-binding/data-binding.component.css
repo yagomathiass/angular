@@ -1,0 +1,38 @@
+.bannerComponents{
+    background-color: hsl(213, 96%, 60%);
+    color: #ffffff;
+    margin-bottom: 4vw;
+}
+
+.bannerComponents h1{
+    margin-bottom: 4vw;
+}
+
+.imgBanner{
+    margin-top: 2vw;
+    display: flex;
+    justify-content: center;
+    -webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.7));
+    filter: drop-shadow(12px 12px 12px rgba(0, 0, 0, 0.7));
+}
+main{
+    color: rgb(114, 114, 114);
+  }
+
+.h1{
+    margin-top: 3vw;
+    color: hsl(213, 96%, 60%);
+  }
+  
+  strong{
+    color: #dd0031;
+  }
+  
+  pre{
+      background-color: #1e1e1e; 
+      color: #9cdcfe;
+  }
+  li{
+    margin-top: 3vw;
+  
+}

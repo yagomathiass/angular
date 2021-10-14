@@ -1,0 +1,310 @@
+<section class="container col-sm-12 col-md-12 text-center bannerComponents">
+  <div class="col-sm-12 col-md-12 col-xs-12 imgBanner">
+    <img src="../../assets/angular_logo.png" alt="Angular" class="col-md-2 col-sm-12 col-xs-12">
+  </div>
+  <div class="col-sm-12 col-md-12 col-xs-12">
+    <h1>Diretivas</h1>
+  </div>
+</section>
+
+<main class="container">
+  <div class="col-md-9">
+    <h1>O que fazemo com as Direvivas?</h1>
+    <p>
+      O propósito da diretiva é fornecer meios para que possamos manipular o DOM ou estender as funcionalidades do
+      elemento
+      no
+      qual a diretiva terá ação, como por exemplo alterar o seu conteúdo, estilo, visibilidade etc.., dependendo da
+      necessidade da funcionalidade a ser desenvolvida. Podemos classificar essas diretivas em
+      estruturais:
+    </p>
+
+    <ul>
+      <li>
+        NgIf - Tem a mesma funcionalidade de "if" em .JS
+      </li>
+      <li>
+        NgFor - Tem a mesma funcionalidade de "for" em .JS
+      </li>
+      <li>
+        NgSwitch - O <code>ng-switch</code> permite ocultar elementos / show HTML dependendo de uma expressão.
+      </li>
+      <li>
+        NgSwitchWhen - Elementos filho com o ng-switch-when directiva será exibido se ele fica um jogo, caso contrário,
+        o
+        elemento, e é as crianças serão removidos.
+      </li>
+      <li>
+        NgSwitchDefault - Você também pode definir uma seção padrão, usando a ng-switch-default directiva, para mostrar
+        uma
+        seção se não das outras seções de começar uma partida.
+      </li>
+    </ul>
+
+    <p>
+      Outras diretivas podem simplesmente alterar a aparência dos itens gerados pelo modelo. Vamos chamar essas
+      diretivas
+      não
+      estruturais:
+    </p>
+
+
+    <ul>
+      <li>
+        NgClass - O ngClass do angular é uma diretiva que permite definir uma classe dinâmicamente a partir do DOM de um
+        elemento.
+      </li>
+      <li>
+        NgStyle
+      </li>
+      <li>
+        NgControlName
+      </li>
+      <li>
+        NgModel
+      </li>
+    </ul>
+
+    <p>
+      Ao selecionar um elemento HTML, a diretiva pode ampliar seu comportamento de diversas formas, sejam elas para para
+      adicionar um novo HTML, associar eventos à funções Javascript, manipular o DOM.
+    </p>
+
+    <h3>
+      Que Tal Criarmos uma Diretiva na prática e entendermos o que se passa?!
+    </h3>
+    <h4>
+      Um pouco sobre módulos
+    </h4>
+
+    <p>
+      Para facilitar a organização do projeto é muito importante que ele seja modularizado. O angular permite criarmos
+      módulos customizados de modo bem prático através da CLI.
+    </p>
+    <p>
+      O comando da cli para criar um módulo é:
+    </p>
+    <code>
+      <h4>
+        ng generate module <span><</span>nomeDoModulo>
+      </h4>
+    </code>
+      Ou de forma curta:
+    <code>
+        <h4>
+          ng g m <span><</span>nomeDoModulo>
+        </h4>
+    </code>
+
+    <p>
+      acabamos por separar a aplicação em módulos, para facilitar a organização do código, incluindo o modulo
+      "directives"
+      ao projeto.
+      Para criar o módulo directives o comando é:
+    </p>
+
+    <code>
+      <h4>
+        ng generate module directives
+      </h4>
+    </code>
+    Ou de forma curta:
+    <code>
+      <h4>
+        ng g m directives
+      </h4>
+    </code>
+
+    <h4>Agora sim podemos começar. Mãos à obra.</h4>
+
+    <p>
+      Agora nós vamos criar uma diretiva no nosso prompt de comando com o seguinte comando:
+    </p>
+
+    <code>
+      <h4>
+        ng generate directive directives/marcaTexto
+      </h4>
+    </code>
+    <p>
+      Após a excecução deste comando, em seu projeto, deve ter criado três aquivos.
+    </p>
+    <p>
+      vamos agora editar o arquivo marca-texto.directive.ts
+    </p>
+    <pre>
+        import {{ '{' }} Directive, ElementRef, Input, OnInit } from '@angular/core';
+      
+      @Directive({{ '{' }}
+      selector: '[appMarcaTexto]'
+      {{ '}' }})
+      export class MarcaTextoDirective implements OnInit{{ '{' }}
+      
+      @Input() corDeFundo: string = 'yellow';
+      @Input() corDoTexto: string = 'white';
+      constructor(private _elemento: ElementRef) {{ '{' }}
+      
+      {{ '}' }})
+      
+      public ngOnInit() {{ '{' }}
+      this.mudarFundo();
+      {{ '}' }})
+      
+      private mudarFundo(cor: string = 'yellow') {{ '{' }}
+      this._elemento.nativeElement.style.backgroundColor = this.corDeFundo || cor;
+      this._elemento.nativeElement.style.color = this.corDoTexto;
+      this._elemento.nativeElement.style.fontWeight = 'bolder';
+      {{ '}' }})
+      
+      {{ '}' }})
+  </pre>
+
+    <p>
+      Assim como na criação de um componente, a diretiva também possui um decorator especial para que possa ser
+      interpretado
+      pelo angular:
+      @Directive();
+    </p>
+    <p>
+      Dentro da declaração do decorator incluímos a propriedade "selector", a qual será utilizada como a tag dentro do
+      componente de exemplo que criaremos mais adiante.
+    </p>
+    <pre>
+      @Directive({{ '{' }}
+        selector: '[appMarcaTexto]'
+        {{ '{' }})
+    </pre>
+    <p>
+      Uma vez que a diretiva foi criada em um módulo customizado, para que ela fique disponível para os outros módulos
+      devemos além de declará-lo, devemos também exportá-la, para que outros módulos possam ter acesso à diretiva. Para
+      tanto vamos editar o arquivo directives.module.ts
+    </p>
+
+    <pre class="example">
+      <span class="roxo">import</span><span class="branco">{{'{'}}</span><span class="azul"> NgModule</span> <span class="branco">{{'}'}}</span><span class="roxo"> from</span><span class="laranja">'@angular/core';</span>
+
+      <span class="roxo">import</span><span class="branco">{{'{'}}</span><span class="azul"> CommonModule</span> <span class="branco">{{'}'}}</span><span class="roxo"> from</span><span class="laranja">'@angular/common';</span>
+      
+      <span class="roxo">import</span><span class="branco">{{'{'}}</span><span class="azul"> MarcaTextoDirective</span> <span class="branco">{{'}'}}</span><span class="roxo"> from</span><span class="laranja">'./marca-texto.directive';</span>
+
+      <span class="branco">@</span><span class="amarelo">NgModule</span><span class="branco">({{'{'}}</span>
+
+    imports: <span class="branco">[</span>
+      CommonModule
+    <span class="branco">],</span>
+
+    declarations: <span class="branco">[</span>MarcaTextoDirective<span class="branco">],</span>
+
+    exports: <span class="branco">[</span>MarcaTextoDirective<span class="branco">]
+
+    {{'}'}})</span>
+
+    <span class="roxo">export</span><span class="azulEscuro"> class</span><span class="verde"> DirectivesModule </span><span class="branco">{{'{'}}
+    {{'}'}}</span>
+  </pre>
+
+    <p>
+      note que devemos declarar e exportar a diretiva da seguinte forma:
+    </p>
+    <pre>
+      declarations: [MarcaTextoDirective],
+      exports: [MarcaTextoDirective]
+    </pre>
+    <p>
+      para visualizar a nossa diretiva, vamos criar um componente dentro do módulo "exemplos".
+      O comando para a criação deste componente de exemplo é:
+    </p>
+    <code>
+      <h4>
+        ng g c exemplos/directives
+      </h4>
+    </code>
+    <blockquote>
+      <p>"Para criar o componente dentro de um módulo, devomos escrever o comando incluindo o caminho do módulo no qual
+        o
+        componente pertencerá, o angular/cli irá nos ajudar criando o componente e também irá declará-lo dentro do
+        módulo."
+      </p>
+    </blockquote>
+
+    <p>
+      O conteúdo do template "directives.component.html é:
+    </p>
+
+    <pre class="example">
+      <span class="azulEscuro">&lt;h1></span><span class="branco">Diretivas</span><span class="azulEscuro">&lt;/h1></span>
+      <span class="azulEscuro">&lt;hr></span>
+
+      <span class="azulEscuro">&lt;div</span> class <span class="branco">=</span><span class="laranja"> "container-fluid"</span>>
+        <span class="azulEscuro">&lt;h2></span><span class="branco">Exemplo - marca texto</span><span class="azulEscuro">&lt;/h2></span>
+
+        <span class="azulEscuro">&lt;div</span> appMarcaTexto corDeFundo=<span class="laranja">'green'</span>>
+          <span class="branco">teste</span>
+        <span class="azulEscuro">&lt;/div></span>
+      <span class="azulEscuro">&lt;/div></span>
+    </pre>
+
+    <p>
+      Adicionamos a rota para componente dentro do arquivo "exemplos/exemplos-routing.module.ts"
+      quer ficará assim:
+    </p>
+
+    <pre class="example">
+
+      <span class="roxo">import</span><span class="branco">{{'{'}}</span><span class="azul"> NgModule</span> <span class="branco">{{'}'}}</span><span class="roxo"> from</span><span class="laranja">'@angular/core';</span>
+
+      <span class="roxo">import</span><span class="branco">{{'{'}}</span><span class="azul"> Routes, RouterModule</span> <span class="branco">{{'}'}}</span><span class="roxo"> from</span><span class="laranja">'@angular/router';</span>
+
+      <span class="roxo">import</span><span class="branco">{{'{'}}</span><span class="azul"> DirectivesComponent</span> <span class="branco">{{'}'}}</span><span class="roxo"> from</span><span class="laranja">'./directives/directives.component';</span>
+
+
+
+      <span class="azulEscuro">const</span> routes: <span class="verde">Routes</span><span class="branci"> = [
+
+        {{'{'}}</span> 
+
+      path: <span class="laranja">'exemplos'</span>, children: <span class="branco"> [
+
+        {{'{'}} </span>path: <span class="laranja">''</span>, component: ComponentsComponent <span class="branco"> {{'}'}},
+
+        {{'{'}} </span>path: <span class="laranja">'componentes'</span>, component: ComponentsComponent <span class="branco">{{'}'}},
+
+        {{'{'}}  </span>path: <span class="laranja">'diretivas'</span>, component: DirectivesComponent <span class="branco">{{'}'}}
+
+      ]
+
+      {{'}'}}
+
+      ];
+      </span>
+
+      <span class="branco">@</span><span class="amarelo">NgModule</span><span class="branco">({{'{'}}</span>
+
+          imports: <span class="branco">[</span>
+
+          RouterModule.<span class="amarelo">forChild</span>(routes<span class="branco">)],</span>
+        
+          exports: <span class="branco">[</span>RouterModule<span class="branco">]
+
+        {{'}'}})</span>
+
+      <span class="roxo">export</span><span class="azulEscuro"> class</span><span class="verde"> ExemplosRoutingModule </span><span class="branco">{{'{'}}
+      {{'}'}}</span>
+    </pre>
+    <p>
+      Agora podemos rodas nossa aplicação:
+    </p>
+    <code>
+      <h4>
+        ng serve
+      </h4>
+  </code>
+    <p>
+      e navegar para a rota "http://localhost:4200/exemplos/diretivas"
+    </p>
+    <img src="../../assets/diretivas.png" alt="Como ficará o navegador">
+    <p Ngstyle>
+      Em seu navegador deve aparecer algo parecido com o print acima.
+    </p>
+  </div>
+</main>

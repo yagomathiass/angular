@@ -1,0 +1,109 @@
+<section class="container col-sm-12 col-md-12 text-center bannerComponents">
+    <div class="col-sm-12 col-md-12 col-xs-12 imgBanner">
+        <img src="../../assets/angular_logo.png" alt="Angular" class="col-md-2 col-sm-12 col-xs-12">
+    </div>
+    <div class="col-sm-12 col-md-12 col-xs-12">
+        <h1>Data-Bindings</h1>
+    </div>
+</section>
+
+<main class="container">
+    <h1 class="h1">
+        Para que servem os Data-Bindings
+    </h1>
+    <p>
+        Data Binding basicamente é uma técnica para que os valores das variaveis do componente sejam refletidas na
+        página, ou seja, se o componente tem uma variavel <code> nome </code> a ideia seria que através do data binding
+        a gente consiga
+        exibir esse <code> nome </code>sem manipulações direta no DOM.
+    </p>
+
+    <h1>Tipos de Data Binding</h1>
+
+    <ol>
+        <li>
+            <strong>String Interpolation</strong>: o String Interpolation é do tipo one way data binding, ou seja, o
+            dado é apenas apresentado na tela para o usuário, sem alteração do valor
+            internamente. Para fazer essa interpolação, use chaves duplas <code>"{{'{{ example }}'}}"</code> , e dentro
+            dos
+            chaves duplos, coloque o nome do atributo do componente ou alguma expressão
+            JavaScript.
+        </li>
+        <p>
+            Para ilustrar como funciona a interpolação, considere um componente angular que contém uma
+            variável chamada nome:
+            app.component.ts:
+            <code>
+                <h4>
+                    nome = 'Júlia'.
+                </h4>
+            </code>
+        </p>
+        <p>
+            Use interpolação para exibir o valor desta variável no modelo de componente correspondente:
+            <code>
+                <h4>
+                    &lt;h3>Current customer:{{ '{{' }} nome {{ '}}' }}&lt;/h3>
+                </h4>
+            </code>
+        </p>
+        <p>
+            Com isto, a vizualização da página deve ser "Júlia".
+        </p>
+        <li>
+            <strong>Property bindig</strong> : Também sendo um one way data binding, o property Binding serve,
+            principalmente, para atrelar valores de atributos do componente aos atributos de
+            um elemento HTML ou algum outro componente. Para usar o property binding,
+            dentro do elemento que você deseja usá-lo, coloque o nome da propriedade entre
+            colchetes, por exemplo:
+
+            <code>
+                <h4>
+                    &lt;img [src]="itemImageUrl">
+                </h4>
+            </code>
+
+            <p> Assim, a propriedade terá o valor do atributo do seu componente.
+            </p>
+        </li>
+        <li>
+            <strong>Event binding</strong>: O Event Binding funciona para ouvir eventos nativos do
+            HTML ou eventos que podem ser criados pelo programador, executando algum
+            método do componente. Para usar o event binding é necessário que, dentro do
+            elemento HTML
+            ou componente, coloque entre parênteses o nome da função e , entre aspas,
+            coloque a chamada da função que deseja executar.
+
+            <code>
+                <h4>
+                    ((nomeDoEvento)=”metodoDoComponente()”).
+                </h4>
+            </code>
+        </li>
+
+        <li>
+            <strong>Two Way Data Binding</strong>: O Two Way Data Binding é um tipo especial de binding,
+            onde além do valor do atributo ser apresentado na tela do usuário, caso o valor seja
+            editado em algum campo de input, o valor será automaticamente alterado internamente
+            no componente. Essa abordagem é muito utilizada para aumentar a interação do
+            usuário, atualizar dados em tempo real, entre outras coisas. É importante salientar que
+            para usar esse método de Binding é necessário importar o módulo de formulários do
+            Angular dentro do módulo principal, já que essa abordagem é geralmente utilizada
+            dentro de formulários. Após a importação ser feita, dentro do componente que há o
+            formulário, dentro do input que deseja usar o TWDB, coloque entre colchetes e
+            parênteses, respectivamente, a diretiva ngModel, como no exemplo abaixo:
+            <code>
+                <h4>
+                    &lt;input [(ngModel)]=”nameModel”><br>
+                    &lt;p>Hello {{'{{'}}nameModel{{'}}'}}!&lt;/p>
+                </h4>
+            </code>
+            <p>
+                Note que dentro do input existe o atributo name. Essa propriedade é obrigatória para o
+                TWDB funcione. Sem ela, não será possível fazer a identificação interna do elemento
+                para poder executar o data Binding. O atributo name não precisa ter exatamente o
+                mesmo nome da propriedade, entretanto, é obrigatório que ele esteja no elemento.
+            </p>
+        </li>
+    </ol>
+</main>

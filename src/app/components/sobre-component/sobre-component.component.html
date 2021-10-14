@@ -1,0 +1,232 @@
+<section class="col-sm-12 col-md-12 col-xs-12 text-center bannerComponents">
+    <div class="col-sm-12 col-md-12 col-xs-12 imgBanner">
+        <img src="../../assets/angular_logo.png" alt="Angular" class="col-md-2 col-sm-12 col-xs-12">
+    </div>
+    <div class="col-sm-12 col-md-12 col-xs-12">
+        <h1>Componentes</h1>
+    </div>
+</section>
+
+<main class="container">
+    <h1 class="h1">Estrutura de um Component</h1>
+
+    <p>
+        Os componentes são classes escritas em TypeScript que recebem o decorator <code>@Component</code>, assim como
+        mostra o primeiro código.
+        Vamos analisar esse código, atente-se ao fato dele ser uma classe com um decorator, por enquanto.
+        Um Component é um tipo de classe existente em uma aplicação Angular, eles são identificados com o decorator, por
+        enquanto..
+    </p>
+    <pre>
+        @Component({{'{'}}
+            selector: 'app-sobre-component',
+            templateUrl: './sobre-component.component.html',
+            styleUrls: ['./sobre-component.component.css']
+
+        {{'}'}})
+
+        export class SobreComponentComponent implements OnInit {{'{'}}
+          
+            constructor() {{'{'}} {{'}'}}
+          
+            ngOnInit(): void {{'{'}}
+            {{'}'}}
+        {{'}'}}
+    </pre>
+
+    <p>
+        Um Component é um tipo de classe existente em uma aplicação Angular, eles são identificados com o decorator
+        <code> @Component.</code>
+    </p>
+
+    <p>
+        Neste decorator existem algumas propriedades mais utilizadas como: selector, templateUrl e style. Vamos
+        especificá-las:
+    </p>
+
+    <ul>
+        <li>
+            <strong>Selector: </strong> é como identificamos o nosso componente. Para todo o componente existe um elemento único associado
+            que permite que ele seja adicionado em um documento HTML. Nesse caso, o nome do elemento desse componente é teste e deve ser escrito como <code> &lt;teste&gt;&lt;/teste&gt;</code>
+        </li>
+        <li>
+            <strong>TemplateUrl:</strong> é o nome do documento HTML que será a parte visual do componente. Nele podemos ter código em HTML juntamente com todos os bindings e diretivas necessários para a exibição do componente no navegador.
+        </li>
+        <li>
+            <strong>Template:</strong> também usado para descrever a parte visual do componente, porém nesse caso podemos fornecer código
+            HTML "hard coded", como texto.
+        </li>
+        <li>
+            <strong>styleUrl:</strong> é onde informamos quais folhas de estilo contêm o código CSS que será aplicado ao template do
+            componente.
+        </li>
+    </ul>
+    <p>
+        Com isso podemos concluir que a estrutura de um componente Angular deve ser formada por esses três
+        elementos, template (HTML), estilo (CSS) e classe (TypeScript). Essas partes são organizadas em arquivos separados e unidas nos
+        metadados do componente através do decorator <code>@Component</code>
+    </p>
+
+
+    <h1 class="h1">Que tal criarmos um componente?!</h1>
+
+    <p>
+        Em um projeto Angular usaremos uma ferramenta chamada Angular CLI para criar componentes. Com ela nos
+        preocupamos menos com a estrutura do componente, pois ela adiciona o mesmo ao projeto já com um código inicial automaticamente.
+        Vamos ver como usar essa ferramenta na prática nesta seção.
+    </p>
+
+    <p>
+        Considerando que o Angular já se encontra instalado no seu sistema operacional, iremos em um terminal, no caso
+        do Windows o cmd e no caso de Linux e MacOS o terminal, para criar uma pasta para um projeto de exemplo com o nome
+        "teste". Para isso usamos o comando seguinte comando para criação do projeto.
+    </p>
+
+    <code>
+        <h4>
+            ng new teste
+        </h4>
+    </code>
+
+    <p>
+        Dependendo da versão do seu angular Cli, ele fará algumas perguntas:
+    </p>
+
+
+    <img src="../../../assets/new1.PNG" alt="perguntas do angular" class="col-md-12">
+
+    <p>
+        Basta responder "N",em seguida "Enter".
+    </p>
+
+    <p>
+        Em seguida vamos entrar em nossa pasta com o comando:
+    </p>
+
+    <code>
+        <h4>cd teste</h4>
+    </code>
+    <p>
+        Dentro da nossa pasta vamos iniciar nosso servidor que rodará por padrão na porta 4200. Com o comando:
+    </p>
+
+    <code>
+      <h4>ng serve</h4>
+    </code>
+    <p>
+        Com o nosso projeto criado vamos adicionar nele um novo componente. A maioria das aplicações Angular será
+        composta de muitos componentes. Para criar um novo componente deveremos executar no terminal o comando visto no
+        a seguir dentro da pasta do projeto.
+    </p>
+
+    <code>
+        <h4>
+            ng g component inicial
+        </h4>
+    </code>
+
+
+    <p>
+        O comando acima gerará um novo componente dentro da pasta "app" chamado inicial, dentro de uma pasta chamada
+        "inicial". Esse componente será composto pelos arquivos "inicial.component.html", "inicial.component.css" e
+        "inicial.component.ts", que contém a estrutura do Component.
+    </p>
+    <pre>
+
+    import {{'{'}} BrowserModule {{'}'}} from '@angular/platform-browser';import {{'{'}} NgModule {{'}'}} from '@angular/core';
+
+    import {{'{'}} AppComponent {{'}'}} from './app.component';
+    import {{'{'}} InicialComponent {{'}'}} from './inicial.component';
+
+    @NgModule({{'{'}}
+        declarations: [
+        AppComponent,
+        InicialComponent
+        ],
+        imports: [
+        BrowserModule
+        ],
+        providers: [],
+        bootstrap: [AppComponent]
+        {{'}'}})
+
+    export class AppModule {{'{'}} {{'}'}}
+    </pre>
+
+    <p>
+        Como vimos, as referências aos componentes ficam dentro do decorator <code> @NgModule</code> na propriedade
+        <code>declarations</code>. É nela que, a princípio, ficarão todos os componentes da nossa aplicação.
+    </p>
+
+    <h1 class="h1">
+        Utilizando um componente
+    </h1>
+    <p>
+        Agora, utilizaremos o componente "inicial" para entender como ele pode funcionar em uma aplicação. Serão exibidos
+        alguns textos no browser, porém o conteúdo do texto estará no arquivo inicial.component.ts e usaremos o recurso do
+        binding do Angular para exibir na view.
+    </p>
+
+    <p>
+        No arquivo inicial.component.ts colocaremos as variáveis que receberão o título e o conteúdo do texto.
+    </p>
+
+    <p>
+        Aora criaremos duas variáveis do tipo string: uma chamada titulo e a outra chamada texto. Ambas terão
+        o modificador de acesso public, já que usaremos em uma view (todo ou parte de uma página web) da aplicação.
+    </p>
+
+    <pre class="example">
+
+        <span class="roxo">import</span><span class="branco">{{'{'}}</span><span class="azul"> Component, OnInit </span> <span class="branco">{{'}'}}</span><span class="roxo"> from</span><span class="laranja"> '@angular/core';</span>
+       
+
+        <span class="branco">@</span><span class="amarelo">NgModule</span><span class="branco">({{'{'}}</span>
+
+        selector<span class="branco">:</span>  <span class="laranja">'app-pagina'</span>,
+        templateUrl<span class="branco">:</span> <span class="laranja">'./inicial.component.html'</span>,
+        styleUrls<span class="branco">: [</span> <span class="laranja">'./inicial.component.css'</span><span class="branco">]
+        {{'}'}});</span>
+
+        <span class="roxo">export</span><span class="azulEscuro"> class</span><span class="verde"> PaginaComponent </span><span class="branco"><span class="azulEscuro">implements</span> OnInit {{'{'}}
+            </span>
+ 
+        <span class="azulEscuro">public</span> titulo<span class="branco">:</span> <span class="laranja">string</span><span class="branco">;</span>
+        <span class="azulEscuro">public</span> texto<span class="branco">:</span> <span class="laranja">string</span><span class="branco">;</span>
+        
+        
+        <span class="azulEscuro">constructor</span><span class="branco">() {{'{'}} {{'}'}} </span> 
+
+        <span class="branco"></span><span class="amarelo">ngOnInit</span><span class="branco">() {{'{'}} {{'}'}} </span>
+      
+
+    </pre>
+
+    <p>
+        Para conseguirmos visualizar o conteúdo da nossa view, visto que não configuramos uma rota no nosso projeto, teremos
+        que fazer uma alteração no arquivo "app.component.html" na raiz da nossa pasta "app". Excluiremos o conteúdo já
+        existente e colocaremos o seletor do nosso componente <code>&lt;app-inicial></code> para quando carregarmos a aplicação a nossa view possa aparecer, como mostra à seguir:
+    </p>
+
+    <img src="../../../assets/app-inicial.PNG" alt="exemplo do app-inicial">
+
+    <p>
+        Caso a aplicação esteja em execução, logo a nova página será exibida, do contrário, deverá executar o comando ng
+        serve em um terminal dentro da pasta do nosso projeto.
+    </p>
+
+    <p>
+        Poderemos dar uma melhorada no visual da aplicação editando o arquivo inicial.compoment.css, onde colocaremos algum
+        código CSS.
+    </p>
+
+
+
+    <h1 class="h1">Conclusão</h1>
+    <p>
+        Os componentes são uma parte importante de toda aplicação Angular, pois é neles que criamos a lógica por trás do
+        funcionamento das views. Vimos como eles são estruturados e como implementá-los em um projeto já
+        criado. Também vimos como podemos configurar as variáveis criadas dentro de um componente e fazer com que os
+        seus valores sejam visualizados em um template.
+    </p>
+</main>

@@ -1,0 +1,96 @@
+<section class="container col-sm-12 col-md-12 text-center bannerComponents">
+  <div class="col-sm-12 col-md-12 col-xs-12 imgBanner">
+    <img src="../../assets/angular_logo.png" alt="Angular" class="col-md-2 col-sm-12 col-xs-12">
+  </div>
+  <div class="col-sm-12 col-md-12 col-xs-12">
+    <h1>Services</h1>
+  </div>
+</section>
+<main class="container">
+  <h1 class="h1">
+    Services
+  </h1>
+  <p>
+    Service é o objeto usado para organizar e/ou compartilhar estados de objetos e as regras de negócio da aplicação.
+    Ele é singleton, ou seja, há apenas uma instância disponível durante a vida útil da aplicação. Outra característica
+    importante é a inicialização tardia (lazily instantiated), que só é efetuada quando o AngularJS identifica que tem
+    algum componente dependente.
+  </p>
+
+  <p>
+    Vamos começar criando o serviço CalculadoraService usando Angular CLI e o comando generate (abreviado por g) e a
+    opção service (abreviada por s):
+  </p>
+
+  <code>
+  <h4>
+    ng g s Calculadora --spec false --module App
+  </h4>
+</code>
+
+  <p>
+    A linha de comando cria o arquivo ./src/app/calculadora.service.ts (a opção --spec false é utilizada para não criar
+    um arquivo de testes, que é o padrão). A opção --module App é utilizada para que o módulo App seja modificado para
+    prover o serviço. Um módulo precisa prover ou fornecer um serviço para que ele possa ser utilizado pelos seus
+    componentes. Para isso ocorre uma alteração na declaração do módulo App, como mostra o trecho de código a seguir:
+  </p>
+
+
+  <pre>
+    ...
+    <span class="roxo">import</span><span class="branco">{{'{'}}</span><span class="azul"> CalculadoraService</span> <span class="branco">{{'}'}}</span><span class="roxo"> from</span><span class="laranja">'./calculadora.service';</span>
+
+    <span class="branco">@</span><span class="amarelo">NgModule</span><span class="branco">({{'{'}}</span>
+      declarations: <span class="branco">[</span>
+      ...
+      <span class="branco">],</span>
+      imports: <span class="branco">[</span>
+      ...
+      <span class="branco">],</span>
+      providers: <span class="branco">[</span>CalculadoraService<span class="branco">],</span>
+      bootstrap: <span class="branco">[</span>AppComponent<span class="branco">]
+      {{'}'}})</span>
+    <span class="roxo">export</span><span class="azulEscuro"> class</span><span class="verde"> AppModule </span><span class="branco">{{'{'}}
+    {{'}'}}</span>
+</pre>
+
+  <p>
+    O atributo providers está informando para os demais componentes do módulo App que o serviço CalculadoraService está
+    disponível para uso.
+  </p>
+
+  <p>
+    O Angular CLI cria um serviço operacional, mas não funcional, ou seja, vazio. Entretanto, é bom dar uma olhada no
+    código:
+  </p>
+
+
+  <pre>
+    <span class="roxo">import</span><span class="branco"> {{'{'}}</span><span class="azul"> Injectable</span> <span class="branco">{{'}'}}</span><span class="roxo"> from</span><span class="laranja">'@angular/core';</span>
+    
+    <span class="branco">@</span><span class="amarelo">Injectable</span><span class="branco">()</span>
+    
+    <span class="roxo">export</span><span class="azulEscuro"> class</span><span class="verde"> CalculadoraService </span><span class="branco">{{'{'}}
+    </span>
+     <span class="azulEscuro"> constructor</span><span class="branco">(){{'{'}} {{'}'}} 
+   {{'}'}}</span> 
+</pre>
+  <p>
+    Agora vamos ver um exemplo na prática do que podemos colocar dentro de um Service:
+  </p>
+  <p>
+    o <strong>Service</strong> Trabalha na estrutura de uma constructor Function:
+  </p>
+  <pre>
+    <span class="azulEscuro">var</span><span class="azul"> Pessoa</span>  =  <span class="azulEscuro">function</span><span class="branco">(</span><span class="azul">nome, idade</span><span class="branco"> ) {{'{'}}</span>
+    <span class="azulEscuro">  this</span>.nome <span class="branco">=</span> nome;
+    <span class="azulEscuro">  this</span>.idade <span class="branco">=</span> idade;
+
+    <span class="branco"> {{'}'}}</span>
+    <span class="azulEscuro">var</span> maria = <span class="azulEscuro">new</span><span class="verde"> Pessoa</span><span class="branco"> (<span class="laranja">"Maria"</span>, 23);</span>
+    maria.idade; <span style="color: dimgray;">// 23</span>
+  </pre>
+  <p>
+    Estas funcionam como um objeto, mas não o retornam. Trabalham com o uso do this.
+  </p>
+</main>
